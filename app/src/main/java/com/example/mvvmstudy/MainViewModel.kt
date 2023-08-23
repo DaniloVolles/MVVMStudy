@@ -9,7 +9,7 @@ class MainViewModel : ViewModel() {
     private var textWelcome = MutableLiveData<String>()
 
     init {
-        textWelcome.value = "Olá"
+        textWelcome.value = "Olá!"
     }
 
     fun welcome(): LiveData <String> {

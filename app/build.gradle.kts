@@ -4,6 +4,11 @@ plugins {
 }
 
 android {
+
+    buildFeatures{
+        viewBinding = true
+    }
+
     namespace = "com.example.mvvmstudy"
     compileSdk = 33
 
@@ -34,10 +39,6 @@ android {
 
     kotlinOptions {
         jvmTarget = "1.8"
-    }
-
-    viewBinding {
-        enabled = true
     }
 }
 

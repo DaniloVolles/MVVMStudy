@@ -2,13 +2,12 @@ package com.example.mvvmstudy
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
-import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.get
 import com.example.mvvmstudy.databinding.ActivityMainBinding
 
-class MainActivity : AppCompatActivity(), View.OnClickListener {
+class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
     private lateinit var viewModel: MainViewModel
@@ -21,22 +20,12 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
         viewModel = ViewModelProvider(this)[MainViewModel::class.java]
 
-        // binding.txtWelcome.text = "Olá!"
+        setObserver()
     }
 
     private fun setObserver(){
         viewModel.welcome().observe(this, Observer {
             binding.txtWelcome.text = it
         })
-    }
-
-    override fun onClick(view: View) {
-        when(view.id){
-            R.id.btn_login -> {
-                binding.txtWelcome.text = "Olá mundo"
-                Toast.makeText(this, "Click", Toast.LENGTH_SHORT).show()
-                finish()
-            }
-        }
     }
 }
